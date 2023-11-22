@@ -7,7 +7,8 @@ class LotteryMachine {
     this.#validator(purchaseAmountString);
     this.#issuanceCount = Number(purchaseAmountString) / 1000;
   }
-
+  
+  // 유효성 확장하기
   #validator(purchaseAmountStiring) {
     const purchaseAmount = Number(purchaseAmountStiring);
 
@@ -20,10 +21,6 @@ class LotteryMachine {
     return Array.from({ length : this.#issuanceCount }, () => {
       return Random.pickUniqueNumbersInRange(1, 45, 6).sort((a, b) => a - b);
     });
-  }
-
-  getPurchaseAmount() {
-    return this.#issuanceCount * 1000;
   }
 }
 
